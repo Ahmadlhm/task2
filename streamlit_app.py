@@ -26,7 +26,7 @@ def manage():
         st.subheader("Add Employee")
         name = st.text_input("Name")
         dept = st.text_input("Department")
-        salary = st.number_input("Salary")
+        salary = st.number_input("Salary", min_value = 290, max_value=10000, step= 50)
         date = st.date_input("Hire Date")
         if st.form_submit_button("Add"):
             requests.post(API_URL, json={
@@ -46,7 +46,7 @@ def manage():
         st.subheader("Update Employee")
         name = st.text_input("New Name")
         dept = st.text_input("New Department")
-        salary = st.number_input("New Salary")
+        salary = st.number_input("New Salary", min_value = 290, max_value=10000, step= 50)
         date = st.date_input("New Hire Date")
         if st.form_submit_button("Update"):
             requests.put(f"{API_URL}/{emp_id}", json={
