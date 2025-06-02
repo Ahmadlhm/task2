@@ -34,13 +34,13 @@ def manage():
                 "salary": salary, "hire_date": str(date)
             })
             st.success("Added successfully")
-            st.experimental_rerun()
+         
 
     emp_id = st.number_input("Employee ID", step=1)
     if st.button("Delete"):
         requests.delete(f"{API_URL}/{emp_id}")
         st.success("Deleted")
-        st.experimental_rerun()
+        
 
     with st.form("update_form"):
         st.subheader("Update Employee")
@@ -54,7 +54,7 @@ def manage():
                 "salary": salary, "hire_date": str(date)
             })
             st.success("Updated")
-            st.experimental_rerun()
+          
 
 page = st.sidebar.radio("Pages", ["Dashboard", "Manage Employees"])
 if page == "Dashboard":
